@@ -1,5 +1,0 @@
-pydantic
-fastapi
-uvicorn
-PyYAML
-typing-extensions>=3.10
