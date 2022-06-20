@@ -1,7 +1,7 @@
 
 dirname="passworder_test"
 
-rm -rf passworder;
+# rm -rf passworder;
 
 if [ ! -d $dirname ];
 then
@@ -36,7 +36,7 @@ cd ../../;
 # hernoem map naar oorspronkelijke naam;
 mv ./passworder_test passworder;
 
-cd passworder/passworder;
+cd passworder/;
 
 # Start applicatie
 python3 main.py;
