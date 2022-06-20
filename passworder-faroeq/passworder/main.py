@@ -27,6 +27,8 @@ class EncryptRequest(BaseModel):
 
 with open("settings.yaml") as settings_file:
     settings = yaml.safe_load(settings_file)
+    wholething = settings["log_location"] + "debug.log"
+
 main_parameters = {}
 if not settings["openapi_console"]:
     main_parameters["docs_url"] = None
@@ -36,7 +38,7 @@ passworder = Passworder()
 
 logger = logging.getLogger(__name__)
 
-logging.basicConfig(filename=settings["log_location"],
+logging.basicConfig(filename=wholething,
                     level=logging.DEBUG,
                     format='%(asctime)s  %(message)s',
                     datefmt='%m/%d/%Y %I:%M:%S %p')

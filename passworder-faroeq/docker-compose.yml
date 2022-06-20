@@ -1,10 +1,10 @@
-version: "3.9"
+version: "3.7"
 services:
   passworder:
     build: .
     ports:
       - "8000:8000"
     volumes:
-      - /var/debug.log
+      - /tmp/fastapi/
   redis:
     image: "redis:alpine"
