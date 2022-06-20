@@ -3,11 +3,11 @@ from cmath import log
 import socket
 from syslog import LOG_INFO
 import traceback
+from starlette.requests import Request
 
 import uvicorn
 import yaml
 import logging
-from http import HTTPStatus
 
 from typing import Optional
 
@@ -36,28 +36,20 @@ passworder = Passworder()
 
 logger = logging.getLogger(__name__)
 
-logging.basicConfig(filename='debug.log',
+logging.basicConfig(filename=settings["log_location"],
                     level=logging.DEBUG,
-                    format='%(asctime)s %(message)s')
-
-hostname = socket.gethostname()
-IPAddr = socket.gethostbyname(hostname)
-
-
-def write_log():
-    logging.info(f' {IPAddr}')
+                    format='%(asctime)s  %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p')
 
 
 @app.get("/encrypt/generators")
 async def generators_list():
-    write_log()
 
     return [list(Passworder.ALGO_MAP.keys())]
 
 
 @app.get("/encrypt/version")
 async def show_version():
-    # logging.info(f' {IPAddr}')
     try:
         with open("version.txt", "r") as version_file:
             version = version_file.read()
@@ -69,7 +61,9 @@ async def show_version():
 
 
 @app.post("/encrypt/")
-async def encrypt(encrypt_request: EncryptRequest):
+async def encrypt(encrypt_request: EncryptRequest, request: Request):
+    logging.info(f"200 {request.client.host} {encrypt_request.algorithm}")
+
     result = {}
     try:
         # Request validation steps..

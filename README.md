@@ -20,4 +20,14 @@ Het is gelukt als je de volgende resultaat hebt:
 }
 ```
 
+## Opdracht logger
+De log locatie is configurabel via settings.yaml.
+
+Je kan dit testen door de volgende url te plakken in je browsers url balk :
+```
+http://0.0.0.0:8000/encrypt/version
+```
+
+Navigeer naar submap passworder en bekijk de inhoud van debug.log
+
 
