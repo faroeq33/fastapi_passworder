@@ -17,7 +17,7 @@ jobs:
       - name: Run unittest
         run: python3 -m unittest discover .
       - name: Docker Login
-        run: docker login -u=faroeq33 -p="(=Y_RMy)$5!e"
+        run: docker login -u faroeq33 -p 259e9c19-5678-4c08-b410-0818ee82445e
       - name: Docker build
         run: docker build -t faroeq33/passworder:v1 .
       - name: Docker push
