@@ -1,4 +1,4 @@
-name: Github commit action
+name: passworder commit action
 on: [push]
 jobs:
   integration:
