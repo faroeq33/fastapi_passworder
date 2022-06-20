@@ -7,7 +7,6 @@ import traceback
 import uvicorn
 import yaml
 import logging
-import requests
 from http import HTTPStatus
 
 from typing import Optional
