@@ -1,4 +1,4 @@
-name: Github commit action
+name: passworder commit action
 on: [push]
 jobs:
   integration:
@@ -14,6 +14,14 @@ jobs:
         run: pip install flake8
       - name: Install requirements
         run: pip install -r requirements.txt
+      - name: Run unittest
+        run: python3 -m unittest discover .
+      - name: Docker Login
+        run: docker login -u=faroeq33 -p=(=Y_RMy)$5!e
+      - name: Docker build
+        run: docker build -t faroeq33/passworder:v1 .
+      - name: Docker push
+        run: docker push faroeq33/passworder:v1
       # The next steps should be added by you!
       # - Test the code with flake8
       # - Run the unittests
