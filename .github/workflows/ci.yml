@@ -22,8 +22,3 @@ jobs:
         run: docker build -t faroeq33/passworder:v1 .
       - name: Docker push
         run: docker push faroeq33/passworder:v1
-      # The next steps should be added by you!
-      # - Test the code with flake8
-      # - Run the unittests
-      # - Build the docker image
-      # - Push the docker image to hub.docker.com (you'll need an account there!)
